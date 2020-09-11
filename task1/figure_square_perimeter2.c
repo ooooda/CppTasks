@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <math.h>
 
+const int NUM_FIGURES = 3;
+const char FIGURES[NUM_FIGURES][10] = {"triangle", "circle", "rectangle"};
+
 void triangle(int a, int b, int c) {
     double perimeter = a + b + c;
     double half_perimeter = perimeter / 2;
@@ -62,13 +65,11 @@ int operations_for_figure(int index) {
 int main() {
     bool status = true;
     char figure[10] = "";
-    const int NUM_FIGURES = 3;
-    const char figure_choose[NUM_FIGURES][10] = {"triangle", "circle", "rectangle"};
     while (status) {
         printf("Choose the figure: triangle, circle, rectangle\n");
         scanf("%s", figure);
         for (int i = 0; i < NUM_FIGURES; ++i) {
-            if (strcmp(figure_choose[i], figure) == 0) {
+            if (strcmp(FIGURES[i], figure) == 0) {
                 status = false;
                 operations_for_figure(i);
             }
